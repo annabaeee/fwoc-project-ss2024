@@ -1,13 +1,7 @@
-export const fetchMovieDetails = async (id, type) => {
-    const res = await fetch(
-        `https://api.themoviedb.org/3/${type}/${id}?language=en-US`,
-        {
-            headers: {
-                Authorization:
-                    `Bearer ${import.meta.env.VITE_API_TOKEN}`
-            },
-        }
-    )
+import { Api } from "../../api/api";
 
-    return res.json();
+export const fetchDetails = async (id, type) => {
+    const res = await Api.fetchJson(`${type}/${id}?language=en-US`);
+    return res;
 }
+

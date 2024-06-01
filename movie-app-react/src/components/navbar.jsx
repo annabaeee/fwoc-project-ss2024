@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import { useState, Fragment } from 'react'
 import {
     Disclosure,
     DisclosureButton,
@@ -10,7 +10,7 @@ import {
     Transition,
 } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { NavLink } from 'react-router-dom'
+import { NavLink, createSearchParams, useNavigate } from 'react-router-dom'
 
 const navigation = [
     { name: 'Home', href: '/' },
@@ -20,10 +20,26 @@ const navigation = [
 ]
 
 function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
+    return classes.filter(Boolean).join(' ');
 }
 
 export const Navbar = () => {
+
+    const navigate = useNavigate();
+    const [searchQuery, setSearchQuery] = useState("");
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        if (searchQuery) {
+            navigate({
+                pathname: "search",
+                search: createSearchParams({
+                    query: searchQuery
+                }).toString()
+            });
+        }
+    }
+
     return (
         <Disclosure as="nav" className="bg-gray-800">
             {({ open }) => (
@@ -60,43 +76,35 @@ export const Navbar = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 
-                                {/* Profile dropdown */}
-                                <Menu as="div" className="relative ml-3">
-                                    <div>
-                                        <MenuButton className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                                            <span className="absolute -inset-1.5" />
-                                            <span className="sr-only">Open user menu</span>
-                                            <img
-                                                className="h-6 w-6 rounded-full"
-                                                src="/user-svgrepo-com.svg"
-                                                alt=""
-                                            />
-                                        </MenuButton>
-                                    </div>
-                                    <Transition
-                                        enter="transition ease-out duration-100"
-                                        enterFrom="transform opacity-0 scale-95"
-                                        enterTo="transform opacity-100 scale-100"
-                                        leave="transition ease-in duration-75"
-                                        leaveFrom="transform opacity-100 scale-100"
-                                        leaveTo="transform opacity-0 scale-95"
-                                    >
-                                        <MenuItems className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                                            <MenuItem>
-                                                {({ focus }) => (
-                                                    <a
-                                                        href="/auth"
-                                                        className={classNames(focus ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                                                    >
-                                                        Log in
-                                                    </a>
-                                                )}
-                                            </MenuItem>
-                                        </MenuItems>
-                                    </Transition>
-                                </Menu>
+                            <div className="xl:w-72">
+                                <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                                    <input
+                                        onChange={e => setSearchQuery(e.target.value)}
+                                        value={searchQuery}
+                                        type="search"
+                                        className="relative m-0 block flex-auto rounded border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+                                        placeholder="Search"
+                                        aria-label="Search"
+                                        aria-describedby="button-addon2" />
+
+                                    {/* <!--Search icon--> */}
+                                    <span
+                                        className="input-group-text flex items-center whitespace-nowrap rounded px-3 py-1.5 text-center text-base font-normal text-neutral-700 dark:text-neutral-200"
+                                        id="basic-addon2"
+                                        onClick={handleSearch}>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20"
+                                            fill="currentColor"
+                                            className="h-5 w-5">
+                                            <path
+                                                fillRule="evenodd"
+                                                d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+                                                clipRule="evenodd" />
+                                        </svg>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
