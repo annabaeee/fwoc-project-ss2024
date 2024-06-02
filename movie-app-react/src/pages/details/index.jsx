@@ -14,7 +14,7 @@ export const DetailsPage = () => {
     const { data, isLoading } = useQuery({ queryKey: ["details", id, type], queryFn: () => fetchDetails(id, type) });
 
     if (isLoading) {
-        return <div>Loading...</div>
+        return <div className="text-lg font-medium">Loading...</div>
     }
 
     const isMovie = type === 'movie';
