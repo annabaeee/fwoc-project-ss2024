@@ -16,7 +16,7 @@ export const Rated = () => {
         if (ratings_updated === null) return false;
         const elapsed = Date.now() - Number.parseInt(ratings_updated);
         // At least a few seconds have passed since a rating change
-        if (elapsed > 5000)  return false;
+        if (elapsed > 7000)  return false;
 
         // Otherwise, refresh every second
         return 1000;
