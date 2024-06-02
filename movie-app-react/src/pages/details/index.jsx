@@ -26,7 +26,7 @@ export const DetailsPage = () => {
     return (
         <div className="flex-auto justify-items-start mt-16 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 p-4">
             <div>
-                <img src={imageSrc} alt="movie-poster" />
+                <img src={imageSrc} alt="movie-poster"/>
             </div>
             <div className="flex-auto justify-items-start space-y-10">
                 <h1 className="font-bold text-6xl text-left">{isMovie ? data.title : data.name}</h1>
