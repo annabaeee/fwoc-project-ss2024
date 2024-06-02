@@ -8,6 +8,7 @@ import {
 import { Link } from "react-router-dom";
 import { UserRating } from "./user-rating";
 
+
 export const CardDisplay = (props) => {
 
     const item = props.data;
@@ -32,7 +33,7 @@ export const CardDisplay = (props) => {
                     </div>
                 </CardBody>
                 <CardFooter className="flex flex-col items-center space-y-4">
-                    <div className="text-gray-300">
+                    <div className="text-gray-300 font-medium">
                         {`Vote average: ${+(item.vote_average / 2).toFixed(1)}`}
                     </div>
                     <UserRating data={item} key={item.id} />

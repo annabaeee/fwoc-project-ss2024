@@ -11,7 +11,7 @@ export const LoadingSkeleton = () => {
                 <Skeleton variant="text" sx={{ fontSize: '1rem', bgcolor: 'grey.800' }} width={360} />
                 <Skeleton variant="text" sx={{ fontSize: '1rem', bgcolor: 'grey.800' }} width={360} />
                 <Skeleton variant="text" sx={{ fontSize: '1rem', bgcolor: 'grey.800' }} width={360} />
-                <Skeleton variant="rounded" width={350} height={90} sx={{ bgcolor: 'grey.800', marginTop: '10px', marginBottom: '20px'}} />
+                <Skeleton variant="rounded" width={360} height={90} sx={{ bgcolor: 'grey.800', marginTop: '10px', marginBottom: '20px'}} />
             </Stack>
         )
     );

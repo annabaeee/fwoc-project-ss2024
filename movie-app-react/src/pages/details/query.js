@@ -5,4 +5,3 @@ export const fetchDetails = async (id, type) => {
     res.type = type;
     return res;
 }
-
