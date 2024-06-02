@@ -10,7 +10,7 @@ The main change from concept to working app was the rating feature. We realized 
 We also changed how the movies are displayed. In our original concept they were displayed by category on all pages, however it was a lot easier to just have one type of movies/shows (e.g. trending) displayed on a page.
 
 1. Unzip the file
-3. Go to https://www.themoviedb.org and create an account
+3. Go to https://www.themoviedb.org and create an account (or log in if you already have one)
 4. Copy your API Read Access Token (NOT API Key!!!)
 5. Create a .env file in the project folder and input the following:
     VITE_API_TOKEN=your_token_here
