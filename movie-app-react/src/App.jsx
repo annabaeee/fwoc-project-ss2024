@@ -10,7 +10,6 @@ import { SearchResult } from "./pages/search";
 
 function App() {
   return (
-    <div>
       <Router>
         <Navbar />
         <Routes>
@@ -22,7 +21,7 @@ function App() {
           <Route path='/search' element={<SearchResult />}></Route>
         </Routes>
       </Router>
-    </div>
+  
   );
 }
 

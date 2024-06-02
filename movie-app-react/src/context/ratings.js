@@ -7,6 +7,7 @@ export const Ratings = {
     isInitializing: false,
     init: async () => {
         if (Ratings.isInitializing || !Ratings.isLoading) return;
+        Ratings.isInitializing = true;
 
         // If local storage session expired, create new guest session
         // otherwise use guest session id from local storage
@@ -30,7 +31,7 @@ export const Ratings = {
         }
 
         Ratings.isLoading = false;
-        if (Ratings.setLoading) {
+        if (Ratings.setLoading !== null) {
             Ratings.setLoading(false);
         }
 
