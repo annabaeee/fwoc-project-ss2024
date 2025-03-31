@@ -1,5 +1,7 @@
 # FWOC Project RATEIFY
 
+Vercel link: https://fwoc-project-ss2024.vercel.app
+
 This project is a movie rating web app. You can add your own ratings on a five star scale, edit them and remove them.
 On the home page you can see the currently trending movies and tv shows, while on the movies and tv shows pages you can see the most popular movies and tv shows respectively.
 The rated page is where you can see all of the ratings you have given.
@@ -17,5 +19,3 @@ We also changed how the movies are displayed. In our original concept they were 
 6. Save
 7. Run npm install
 8. Run npm run dev
-
-Vercel link: https://fwoc-project-ss2024.vercel.app
